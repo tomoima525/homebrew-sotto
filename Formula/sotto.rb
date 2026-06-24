@@ -3,8 +3,8 @@ class Sotto < Formula
 
   desc "Fully-local dictation for macOS: hotkey to speak, get cleaned text"
   homepage "https://github.com/tomoima525/sotto"
-  url "https://github.com/tomoima525/sotto/archive/refs/tags/1.0.1.tar.gz"
-  sha256 "2210ff84780e9e5b7c225b6a4bb59acdc4767237cacc52d8fe80bd3f68e89339"
+  url "https://github.com/tomoima525/sotto/archive/refs/tags/1.0.2.tar.gz"
+  sha256 "7d2cb50de567782b8de1d4a05b35ae1f78dec36502bb543fc00865cd1a2fea21"
   license "MIT"
 
   depends_on arch: :arm64
@@ -301,5 +301,6 @@ class Sotto < Formula
 
   test do
     assert_match "usage: sotto", shell_output("#{bin}/sotto --help")
+    assert_match version.to_s, shell_output("#{bin}/sotto --version")
   end
 end
