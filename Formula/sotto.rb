@@ -4,7 +4,7 @@ class Sotto < Formula
   desc "Fully-local dictation for macOS: hotkey to speak, get cleaned text"
   homepage "https://github.com/tomoima525/sotto"
   url "https://github.com/tomoima525/sotto/archive/refs/tags/1.1.0.tar.gz"
-  sha256 "ee1d9d3f56acfedbd3c589d8c90ec4d0d3d791667c361c128b7873298c1edde4"
+  sha256 "f953b971438162c6afa54504f1e7c23d40687942f3c98aa50c14a4258275fb90"
   license "MIT"
 
   depends_on arch: :arm64
@@ -301,8 +301,6 @@ class Sotto < Formula
 
   test do
     assert_match "usage: sotto", shell_output("#{bin}/sotto --help")
-    # Loose version check: the packaged version can lag the release tag, so
-    # only assert `--version` prints a "sotto <version>" line.
-    assert_match(/^sotto \d+\.\d+/, shell_output("#{bin}/sotto --version"))
+    assert_match version.to_s, shell_output("#{bin}/sotto --version")
   end
 end
